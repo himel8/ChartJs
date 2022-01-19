@@ -48,7 +48,7 @@ const Chart = ({ inputData }) => {
           dataKey="yData"
           interval={"preserveStartEnd"}
           type="number"
-          domain={[(dataMin) => dataMin / 2, (dataMax) => dataMax * 2]}
+          domain={[0, (dataMax) => dataMax * 2]}
         />
         <Tooltip />
         <Legend />
