@@ -15,7 +15,7 @@ const DataForm = ({ inputData, setInputData }) => {
     setInputData([...inputData, { xData: "", yData: "" }]);
   };
   return (
-    <div className="w-full	 mx-auto">
+    <div className="w-full mx-auto">
       <form>
         {inputData?.map((item, i) => (
           <Data key={i} handleData={handleData} i={i} />

@@ -4,7 +4,6 @@ import {
   Legend,
   Line,
   LineChart,
-  ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
@@ -21,40 +20,40 @@ const Chart = ({ inputData }) => {
     { name: "Page G", uv: 0.18, pv: 3000, amt: 3000 },
   ];
   return (
-    <div>
-      <ResponsiveContainer width="100%" height="100%">
-        <LineChart
-          width={600}
-          height={50}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-          data={inputData}
-        >
-          <Line
-            type="monotone"
-            dataKey="yData"
-            strokeWidth={2}
-            stroke="#8884d8"
-            activeDot={{ r: 8 }}
-          />
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="xData" interval={"preserveStartEnd"} />
+    <div className="w-full mx-auto">
+      {/* <ResponsiveContainer width="100%" height="100%"> */}
+      <LineChart
+        width={600}
+        height={500}
+        margin={{
+          top: 5,
+          right: 30,
+          left: 20,
+          bottom: 5,
+        }}
+        data={inputData}
+      >
+        <Line
+          type="monotone"
+          dataKey="yData"
+          strokeWidth={2}
+          stroke="#8884d8"
+          activeDot={{ r: 8 }}
+        />
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="xData" interval={"preserveStartEnd"} />
 
-          <YAxis
-            tickCount={15}
-            dataKey="yData"
-            interval={0}
-            type="number"
-            domain={[0, (dataMax) => dataMax * 2]}
-          />
-          <Tooltip />
-          <Legend />
-        </LineChart>
-      </ResponsiveContainer>
+        <YAxis
+          tickCount={10}
+          dataKey="yData"
+          interval={"preserveStartEnd"}
+          type="number"
+          domain={[(dataMin) => dataMin / 2, (dataMax) => dataMax * 2]}
+        />
+        <Tooltip />
+        <Legend />
+      </LineChart>
+      {/* </ResponsiveContainer> */}
     </div>
   );
 };
